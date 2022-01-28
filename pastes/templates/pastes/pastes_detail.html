@@ -1,0 +1,13 @@
+<!-- entries/templates/entries/entries_detail.html -->
+
+{% extends "pastes/base.html" %}
+
+{% block content %}
+    <article>
+        <h6><b>Date Created:</b> {{ pastes.date_created|date:'Y-m-d H:i' }}</h6>
+        <h6><b>Paste body:<br></b></h6>
+        {{ pastes.paste_body|linebreaks }}
+        <br><br>
+
+    </article>
+{% endblock %}

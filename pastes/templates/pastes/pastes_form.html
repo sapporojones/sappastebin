@@ -1,0 +1,20 @@
+<!-- pastes/templates/pastes/paste_form.html -->
+
+{% extends "pastes/base.html" %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+
+    {% if pastes %}
+        <a href="{% url 'pastes-detail' pastes.id %}">
+            <button>Cancel</button>
+        </a>
+    {% else %}
+        <a href="{% url 'pastes-create' %}">
+            <button>Cancel</button>
+        </a>
+    {% endif %}
+    </form>
+{% endblock %}
