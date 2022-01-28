@@ -4,6 +4,8 @@
 ### DotEnv files used by project ###
 .env
 
+db.sqlite3
+
 ### OSX ###
 # General
 .DS_Store
