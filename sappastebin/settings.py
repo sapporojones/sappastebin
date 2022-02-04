@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,11 +32,12 @@ ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS=[ 'https://paste.sunkenrlyeh.com', 'http://paste.sunkenrlyeh.com' ]
 
 
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https') 
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # CSRF_COOKIE_SECURE = False
 
 # Application definition
 
+FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.forms',
     'pastes.apps.PastesConfig',
 ]
 
@@ -62,7 +65,7 @@ ROOT_URLCONF = 'sappastebin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

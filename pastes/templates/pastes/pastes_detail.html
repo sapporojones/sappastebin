@@ -6,7 +6,9 @@
     <article>
         <h6><b>Date Created:</b> {{ pastes.date_created|date:'Y-m-d H:i' }}</h6>
         <h6><b>Paste body:<br></b></h6>
-        {{ pastes.paste_body|linebreaks }}
+        <pre>
+        {{ pastes.paste_body|linebreaks }}        
+        </pre>
         <br><br>
 
     </article>
