@@ -11,10 +11,9 @@ class PastesForm(forms.Form):
     #     model = Pastes
     #     fields = "__all__"
 
-
     paste_body = forms.CharField(strip=False, widget=forms.Textarea(attrs={'rows': 50, 'cols': 175}))
-    encryption_key = forms.CharField(required=False)
-    password_protect = forms.BooleanField(required=False)
+    # encryption_key = forms.CharField(required=False)
+    # password_protect = forms.BooleanField(required=False)
 
     class Meta:
         model = Pastes

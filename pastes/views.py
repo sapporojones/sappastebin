@@ -51,8 +51,7 @@ class PastesDetailView(DetailView):
     model = Pastes
 
 
-class PastesCreateView(FormView): # generic inherits CreateView, we need FormView
-    transient_data.pk = ""
+class PastesCreateView(FormView):
     template_name = "pastes/pastes_form.html"
     model = Pastes
     form_class = PastesForm
@@ -68,14 +67,15 @@ class PastesCreateView(FormView): # generic inherits CreateView, we need FormVie
         cleaned = form.cleaned_data
 
         form_data = Pastes(
-            paste_body = cleaned['paste_body'],
+            paste_body=cleaned['paste_body'],
 
-            encrypted_flag = cleaned['password_protect']
+            encrypted_flag=cleaned['password_protect']
         )
-        data_obj = form_data.save()
-        print(form_data.pk)
-        transient_data.pk = form_data.pk
+        # password protect logic goes here
 
+        form_data.save()
+        transient_data.pk = form_data.pk
+        # print(form_data.pk)
         return super().form_valid(form)
 
     def get_success_url(self):
