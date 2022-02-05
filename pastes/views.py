@@ -69,7 +69,7 @@ class PastesCreateView(FormView):
         form_data = Pastes(
             paste_body=cleaned['paste_body'],
 
-            encrypted_flag=cleaned['password_protect']
+            # encrypted_flag=cleaned['password_protect']
         )
         # password protect logic goes here
 
