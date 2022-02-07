@@ -12,7 +12,7 @@ class PastesForm(forms.Form):
     #     model = Pastes
     #     fields = "__all__"
 
-    paste_body = forms.CharField(strip=False, widget=forms.Textarea(attrs={'rows': 30, 'cols': 155, 'style': 'width: 100%'}))
+    paste_body = forms.CharField(strip=False, widget=forms.Textarea(attrs={'rows': 30, 'cols': 155, 'style': 'width: 95%; height: 75%; align: center'}))
     encryption_key = forms.CharField(required=False)
     password_protect = forms.BooleanField(required=False)
 
