@@ -4,10 +4,10 @@
 
 {% block content %}
     <article>
-        <h6><b>Date Created:</b> {{ pastes.date_created|date:'Y-m-d H:i' }}</h6>
+        <h6><b>Date Created:</b> {{ query.date_created|date:'Y-m-d H:i' }}</h6>
         <h6><b>Paste body:<br></b></h6>
         <pre>
-        {{ pastes.paste_body|linebreaks }}
+        {{ template_out|linebreaks }}
         </pre>
         <br><br>
 

@@ -2,22 +2,33 @@
 
 from django.urls import path
 
-from . import views
+from .views import pastes_create, pastes_detail, pastes_decrypt, pastes_decrypted
 
 urlpatterns = [
     path(
         "pastes/<uuid:pk>",
-        views.PastesDetailView.as_view(),
+        pastes_detail,
         name="pastes-detail"
     ),
     path(
         "create",
-        views.PastesCreateView.as_view(),
+        pastes_create,
         name="pastes-create"
     ),
     path(
         "",
-        views.PastesCreateView.as_view(),
+        pastes_create,
         name="pastes-create"
     ),
+    path(
+        "decrypt/<uuid:pk>",
+        pastes_decrypt,
+        name="pastes-decrypt"
+    ),
+    path(
+        "decrypted/<uuid:pk>",
+        pastes_decrypted,
+        name="pastes-decrypted"
+    ),
+
 ]
