@@ -3,13 +3,21 @@
 {% extends "pastes/base.html" %}
 
 {% block content %}
+ 
+
+
     <article>
+
+	<div class="card-container mx-auto" style="width:90%">
+	<div class="card-header">
         <h6><b>Date Created:</b> {{ pastes.date_created|date:'Y-m-d H:i' }}</h6>
-        <h6><b>Paste body:<br></b></h6>
-        <pre>
+	</div>
+	<div class="card-body" style="overflow-wrap: text-break">
+        <pre style="white-space: pre-wrap; ">
         {{ pastes.paste_body|linebreaks }}
         </pre>
+	</div>
         <br><br>
-
+	</dev>
     </article>
 {% endblock %}
